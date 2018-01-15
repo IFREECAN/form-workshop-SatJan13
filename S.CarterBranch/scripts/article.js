@@ -29,7 +29,6 @@ Article.prototype.toHtml = function() {
     this.publishStatus = '(draft)';
   }
 
-
   // DONE: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
   return template(this);
 };
@@ -42,6 +41,6 @@ rawData.forEach(articleObject => {
   articles.push(new Article(articleObject));
 });
 
-articles.forEach(article => {
-  $('#articles').append(article.toHtml());
-});
+// articles.forEach(article => {
+//   $('#articles').append(article.toHtml());
+// });
