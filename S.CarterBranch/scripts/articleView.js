@@ -78,10 +78,53 @@ articleView.setTeasers = function() {
   });
 };
 
-$(document).ready(() => {
+articleView.initNewArticlePage = function() {
+  $('#articles').empty();
+
+  $('.tab-content').show();
+
+  $('export-field').hide();
+  $('#article-jason').on('focus', function() {
+    console.log('this:', this);
+    console.log('$(this')', $(this));
+    this.select();
+  });
+
+  //on change of our new form create our JSON object
+  $('#new-form').on('change', 'input, textarea', articleView.create);
+}
+
+articleView.create = () => {
+  let article;
+
+  $('#articles').empty();
+
+  article = new Article({
+    title: $('#article-title').val(),
+    author: $('#article-author').val(),
+    category: $('#article-category').val(),
+    body: $('article-body').val(),
+    publishedOn: $('#article-published:checked').length ? new Date() : null
+  });
+}
+
+$('#articles').appen(article.toHtml());
+
+$('pre.code').each(function(i, block) {
+  console.log('index:' , i);
+  htjs.highlightBlock(block);
+})
+
+$('#export-field').show();
+$('article-json').val(JSON.stringify(article) + ',');
+}
+
+
+articleView.initIndexPage = () => {
+  article.forEach(article => $('#articles').append(article.toHtml()));
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
-})
+}

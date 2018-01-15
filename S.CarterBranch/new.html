@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
+    <link rel="stylesheet" href="vendor/style/railscasts.css">
 
     <!--
     TODO: Add a script tag to hold the Handlebars template.
@@ -51,6 +52,7 @@
     </header>
     <main class="clearfix">
         <section id="writ" class="tab-content">
+
             <h1>New Article</h1>
             <form action="#" id="new-form">
                 <label>
@@ -76,6 +78,21 @@
                         </label>
             </form>
         </section>
+
+        <section id="articles" class="tab-content">
+            <!--this will hold articles and we can review them-->
+        </section>
+
+        <section id="article-export" >
+            <label id="export-fill" for="article-json">
+                <input type="text" id="article-json" readonly>
+                <span>when done, copy the JSON from above</span>
+            </label>
+            
+
+        </section>
+
+
     </main>
     <footer>
       &copy; 2017 Code Fellows | Static Blog | Happy Ipsum!
